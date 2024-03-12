@@ -1,3 +1,6 @@
+## Aura Zen
+본 프로젝트는 JaeKeun 의 개인 공부를 위해 만들어진 프로젝트 입니다
+게시판 / 고객관리
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
