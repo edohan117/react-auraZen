@@ -16,9 +16,9 @@ app.use(session({
   }
 }));
 
-app.use(express.json({
-  limit: '50mb'
-}));
+app.use(express.json({limit: '50mb'}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 let sql = require('./sql.js');
 
@@ -54,12 +54,59 @@ const req = {
   }
 };
 
-app.listen(
-  port,
-  () => console.log(`Example app listening at http://localhost:${port}`)
-);
- 
-
-app.get('/api/hello', (req, res) => {
-  res.send({message: 'Hello Express!'})
+app.get('/api/customers', (req, res) =>{
+  res.send([
+    {
+      "id": 1,
+      "image": "https://picsum.photos/id/1/200/150",
+      "name": "홍길동",
+      "birthday": "950117",
+      "gender": "남자",
+      "job": "대학생"
+  },
+  {
+      "id": 2,
+      "image": "https://picsum.photos/id/2/200/150",
+      "name": "백재근",
+      "birthday": "950117",
+      "gender": "남자",
+      "job": "백수"
+  },
+  {
+      "id": 3,
+      "image": "https://picsum.photos/id/3/200/150",
+      "name": "이도한",
+      "birthday": "950117",
+      "gender": "남자",
+      "job": "개발자"
+  }
+  ])
 })
+
+
+// app.get('/api/:alias', async (request, res) => {
+  //   try {
+    //     res.send(await req.db(request.params.alias, request.body.param, request.body.where));
+    //   } catch (err) {
+//     res.status(500).send({
+//       error: err
+//     });
+//   }
+// });
+
+// app.post('/api/:alias', async (request, res) => {
+  //   try {
+    //     res.send(await req.db(request.params.alias, request.body.param, request.body.where));
+    //   } catch (err) {
+      //     res.status(500).send({
+        //       error: err
+//     });
+//   }
+// });
+
+
+        
+        app.listen(
+          port,
+          () => console.log(`Example app listening at http://localhost:${port}`)
+        );
