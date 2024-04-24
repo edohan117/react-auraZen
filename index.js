@@ -67,7 +67,7 @@ app.get('/api/customers', (req, res) =>{
   {
       "id": 2,
       "image": "https://picsum.photos/id/2/200/150",
-      "name": "백재근",
+      "name": "김호수",
       "birthday": "950117",
       "gender": "남자",
       "job": "백수"
